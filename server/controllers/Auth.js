@@ -1,6 +1,6 @@
 const User = require('../models/User');
 const OTP = require('../models/OTP');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const otpGenerator = require('otp-generator');
 const mailSender = require('../utils/mailSender');
