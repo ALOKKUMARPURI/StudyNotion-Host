@@ -1,7 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
-const cors = require("cors");
 const fileUpload = require("express-fileupload");
 
 const database = require("./config/database");
@@ -73,6 +72,6 @@ app.listen(PORT, () => {
   console.log(`🚀 Server is running at http://localhost:${PORT}`);
 });
 
-console.log("MONGO_URI:", process.env.MONGODB_URL);
-console.log("RZP KEY:", process.env.REACT_APP_RAZORPAY_KEY);
+//console.log("MONGO_URI:", process.env.MONGODB_URL);
+//console.log("RZP KEY:", process.env.REACT_APP_RAZORPAY_KEY);
  
