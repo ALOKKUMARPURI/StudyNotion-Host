@@ -26,10 +26,24 @@ const PORT = process.env.PORT || 4000;
 // 🔧 Middlewares
 app.use(express.json());
 app.use(cookieParser());
+const cors = require("cors");
+
+const allowedOrigins = [
+  "http://localhost:3000", 
+  "https://studynotion-frontend-db1zbxt5h-aloks-projects-a3d10821.vercel.app"
+];
+
 app.use(cors({
-  origin: "http://localhost:3000", // frontend
-  credentials: true,
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
 }));
+
 
 app.use(fileUpload({
   useTempFiles: true,
