@@ -29,7 +29,7 @@ const cors = require("cors");
 
 const allowedOrigins = [
   "http://localhost:3000", 
-  "https://studynotion-frontend-db1zbxt5h-aloks-projects-a3d10821.vercel.app"
+  "https://depolythisstudynotion.netlify.app"
 ];
 
 app.use(cors({
