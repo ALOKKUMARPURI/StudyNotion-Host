@@ -165,7 +165,7 @@ const ContactUsForm = () => {
         />
         {errors.message && (
           <span className="-mt-1 text-[12px] text-yellow-100">
-            Please enter your Message.
+            Please Enter your Message.
           </span>
         )}
       </div>
