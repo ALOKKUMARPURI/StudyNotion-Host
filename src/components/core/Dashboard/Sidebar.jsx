@@ -8,7 +8,7 @@ import { logout } from "../../../services/operations/authAPI"
 import ConfirmationModal from "../../Common/ConfirmationModal"
 import SidebarLink from "./SidebarLink"
 
-export default function Sidebar() {
+export default function Sidebar({isOpen=false,onClose}) {
   const { user, loading: profileLoading } = useSelector(
     (state) => state.profile
   )
@@ -28,8 +28,10 @@ export default function Sidebar() {
 
   return (
     <>
-      <div className="flex h-[calc(100vh-3.5rem)] min-w-[220px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 py-10">
-        <div className="flex flex-col">
+      <div className={`flex flex-col h-full bg-richblack-800 border-r border-richblack-700 py-10 transform transition-transform duration-300 ease-in-out
+    ${isOpen ? 'translate-x-0 fixed z-40 left-0 top-0 w-[220px] md:static' : '-translate-x-full md:translate-x-0 md:flex hidden'}`}>
+      
+        <div className="flex flex-col overflow-y-auto h-full">
           {sidebarLinks.map((link) => {
             if (link.type && user?.accountType !== link.type) return null
             return (
